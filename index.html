@@ -1,0 +1,44 @@
+<script>
+  const noMessages = [
+    "Are you sure?",
+    "Really?",
+    "Think again",
+    "Are you REALLY sure?",
+    "Yayyy!"
+  ];
+
+  const teddyFaces = [
+    "teddy-confused.png",
+    "teddy-sad.png",
+    "teddy-angry.png",
+    "teddy-shy.png",
+    "teddy-happy.png"
+  ];
+
+  let clickCount = 0;
+
+  function handleNo() {
+    const noBtn = document.getElementById("noBtn");
+    const teddy = document.getElementById("teddy");
+
+    if (clickCount < noMessages.length) {
+      noBtn.innerText = noMessages[clickCount];
+      teddy.src = teddyFaces[clickCount];
+
+      noBtn.style.position = "absolute";
+      noBtn.style.left = Math.random() * 80 + "%";
+      noBtn.style.top = Math.random() * 80 + "%";
+
+      clickCount++;
+    } else {
+      celebrate();
+    }
+  }
+
+  function celebrate() {
+    document.getElementById("question").innerText =
+      "Happy Valentine's Day ❤️ Thank you for being my Valentine!";
+    document.getElementById("teddy").src = "teddy-dance.gif";
+    document.getElementById("buttons").style.display = "none";
+  }
+</script>
