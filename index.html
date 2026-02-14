@@ -1,44 +1,104 @@
-<script>
-  const noMessages = [
-    "Are you sure?",
-    "Really?",
-    "Think again",
-    "Are you REALLY sure?",
-    "Yayyy!"
-  ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine ❤️</title>
 
-  const teddyFaces = [
-    "teddy-confused.png",
-    "teddy-sad.png",
-    "teddy-angry.png",
-    "teddy-shy.png",
-    "teddy-happy.png"
-  ];
-
-  let clickCount = 0;
-
-  function handleNo() {
-    const noBtn = document.getElementById("noBtn");
-    const teddy = document.getElementById("teddy");
-
-    if (clickCount < noMessages.length) {
-      noBtn.innerText = noMessages[clickCount];
-      teddy.src = teddyFaces[clickCount];
-
-      noBtn.style.position = "absolute";
-      noBtn.style.left = Math.random() * 80 + "%";
-      noBtn.style.top = Math.random() * 80 + "%";
-
-      clickCount++;
-    } else {
-      celebrate();
+  <style>
+    body {
+      background-color: #ffd6e8;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden;
     }
-  }
 
-  function celebrate() {
-    document.getElementById("question").innerText =
-      "Happy Valentine's Day ❤️ Thank you for being my Valentine!";
-    document.getElementById("teddy").src = "teddy-dance.gif";
-    document.getElementById("buttons").style.display = "none";
-  }
-</script>
+    #container {
+      margin-top: 50px;
+    }
+
+    img {
+      width: 260px;
+    }
+
+    h1 {
+      color: #5c2c1a;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 8px;
+      border: none;
+      background-color: #c97c5d;
+      color: white;
+    }
+
+    button:hover {
+      background-color: #a55a3b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+    <!-- Initial teddy -->
+    <img id="teddy" src="teddy-confused.gif" alt="Cute Teddy">
+
+    <h1 id="question">Will you be my Valentine AbhiRami? 💖</h1>
+
+    <div id="buttons">
+      <button onclick="celebrate()">Yes</button>
+      <button id="noBtn" onclick="handleNo()">No</button>
+    </div>
+  </div>
+
+  <script>
+    const noMessages = [
+      "Are you sure?",
+      "Really?",
+      "Think again",
+      "Are you REALLY sure?",
+      "Yayyy!"
+    ];
+
+    const teddyFaces = [
+      "teddy-confused.gif",
+      "teddy-sad.gif",
+      "teddy-angry.gif",
+      "teddy-shy.gif",
+      "teddy-happy.gif"
+    ];
+
+    let clickCount = 0;
+
+    function handleNo() {
+      const noBtn = document.getElementById("noBtn");
+      const teddy = document.getElementById("teddy");
+
+      if (clickCount < noMessages.length) {
+        noBtn.innerText = noMessages[clickCount];
+        teddy.src = teddyFaces[clickCount];
+
+        noBtn.style.position = "absolute";
+        noBtn.style.left = Math.random() * 80 + "%";
+        noBtn.style.top = Math.random() * 80 + "%";
+
+        clickCount++;
+      } else {
+        celebrate();
+      }
+    }
+
+    function celebrate() {
+      document.getElementById("question").innerText =
+        "Happy Valentine's Day ❤️ Thank you for being my Valentine!";
+      document.getElementById("teddy").src = "teddy-dance.gif";
+      document.getElementById("buttons").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
